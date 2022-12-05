@@ -47,7 +47,7 @@ namespace PermissionBasedAuthorizationApp.Seeds
             await roleManager.SeedClaimsForSuperAdmin();
         }
     }
-    private async static Task SeedClaimsForSuperAdmin(this RoleManager<IdentityRole> roleManager)
+    private static async Task SeedClaimsForSuperAdmin(this RoleManager<IdentityRole> roleManager)
     {
         var adminRole = await roleManager.FindByNameAsync("SuperAdmin");
         await roleManager.AddPermissionClaim(adminRole, "Products");
